@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { toast } from "react-toastify";
 import { BodyStyled, DivBase } from "./styled"
 
 export const JogoDaVelha=()=>{
@@ -11,7 +12,16 @@ export const JogoDaVelha=()=>{
 
     const handleClick =(index)=>{
         if(winner){
-            console.log("Jogo finalizado");
+            toast.error('O jogo acabou!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             return null;
         }
 
@@ -42,10 +52,39 @@ export const JogoDaVelha=()=>{
             possibleWaysToWin.forEach(cells =>{
                 if(cells.every(cell => cell === "O")){
                     setWinner("O venceu")
+                    toast('🎉 Parabéns, o jogador "O" venceu', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        }); 
                 }else if(cells.every(cell => cell === "X")){
                     setWinner("X venceu")
+                    toast('🎉 Parabéns, o jogador "X" venceu', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        });
                 }else{
-                    console.log("Deu velha!")
+/*                     toast.error('❌ Deu velha!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        }); */
                 }
             })
     }
