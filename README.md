@@ -23,13 +23,11 @@
     <p> Quando houver um vencer, um alerta irá aparecer no canto superior direito da tela, conforme imagem: </p>
     <img src="https://user-images.githubusercontent.com/102433664/224416932-96802dcc-2f7f-4dcd-839e-93b0b888096f.png" />
     <p> Se a partida não tiver vencedores <strong>("deu velha") </strong>, o jogo irá reiniciar sozinho. </p>
-
-
-    
   </li>
 </ol>
 
-
+<h3>Surge:</h3> 
+<p>https://gamy-aftermath.surge.sh/ </p>
 
 <h3> Tecnologias utilizadas: </h3>
 <img src="https://skillicons.dev/icons?i=js,react&perline=10" />
