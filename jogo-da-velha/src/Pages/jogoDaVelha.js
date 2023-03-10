@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify";
-import { BodyStyled, DivBase } from "./styled"
-
+import { BodyStyled, DivBase } from "./styled";
 export const JogoDaVelha=()=>{
 
     const arr = Array(9).fill(" ");
@@ -12,16 +11,6 @@ export const JogoDaVelha=()=>{
 
     const handleClick =(index)=>{
         if(winner){
-            toast.error('O jogo acabou!', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                });
             return null;
         }
 
@@ -31,6 +20,12 @@ export const JogoDaVelha=()=>{
         setBase(base.map((item, itemIndex)=> itemIndex === index ? player : item));
 
         setPlayer(player === "X" ? "O" : "X")
+
+        if(base.filter((item)=>{
+            return item === " "
+        }).length < 2){
+            setBase(arr)
+        }
     }
 
         const checkWinner=() =>{
@@ -62,6 +57,7 @@ export const JogoDaVelha=()=>{
                         progress: undefined,
                         theme: "light",
                         }); 
+                        setBase(arr)
                 }else if(cells.every(cell => cell === "X")){
                     setWinner("X venceu")
                     toast('🎉 Parabéns, o jogador "X" venceu', {
@@ -74,17 +70,7 @@ export const JogoDaVelha=()=>{
                         progress: undefined,
                         theme: "light",
                         });
-                }else{
-/*                     toast.error('❌ Deu velha!', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                        }); */
+                        setBase(arr)
                 }
             })
     }
@@ -94,7 +80,10 @@ export const JogoDaVelha=()=>{
 
     return(
         <BodyStyled>
-            <h1>Jogo da velha</h1>
+            <div>
+                <h1>Jogo da velha</h1>
+
+            </div>
 
             <DivBase {...winner? "game-over" : ""}>
                 {base.map((item, index)=>(
