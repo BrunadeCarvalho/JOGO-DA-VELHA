@@ -29,9 +29,9 @@ export const JogoDaVelha=()=>{
         }
     }
 
-        const checkWinner=() =>{
+        const result=() =>{
 
-            const possibleWaysToWin = [
+            const optionsToWin = [
                 [base[0], base[1], base[2]],
                 [base[3], base[4], base[5]],
                 [base[6], base[7], base[8]],
@@ -45,7 +45,7 @@ export const JogoDaVelha=()=>{
 
             ];
             
-            possibleWaysToWin.forEach(cells =>{
+            optionsToWin.forEach(cells =>{
                 if(cells.every(cell => cell === "O")){
                     setWinner("O venceu")
                     toast('🎉 Parabéns, o jogador "O" venceu', {
@@ -76,7 +76,7 @@ export const JogoDaVelha=()=>{
             })
     }
 
-    useEffect(checkWinner, [base])
+    useEffect(result, [base])
 
 
     return(
