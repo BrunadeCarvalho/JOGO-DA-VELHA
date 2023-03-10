@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react"
+import {FaSlackHash} from 'react-icons/fa'
 import { toast } from "react-toastify";
-import { BodyStyled, DivBase } from "./styled";
+import { useState, useEffect } from "react"
+import { BodyStyled, DivBase, DivHeader } from "./styled";
 export const JogoDaVelha=()=>{
 
     const arr = Array(9).fill(" ");
@@ -56,8 +57,8 @@ export const JogoDaVelha=()=>{
                         draggable: true,
                         progress: undefined,
                         theme: "light",
-                        }); 
-                        setBase(arr)
+                    }); 
+                    setBase(arr)
                 }else if(cells.every(cell => cell === "X")){
                     setWinner("X venceu")
                     toast('🎉 Parabéns, o jogador "X" venceu', {
@@ -69,8 +70,8 @@ export const JogoDaVelha=()=>{
                         draggable: true,
                         progress: undefined,
                         theme: "light",
-                        });
-                        setBase(arr)
+                    });
+                    setBase(arr)
                 }
             })
     }
@@ -80,10 +81,11 @@ export const JogoDaVelha=()=>{
 
     return(
         <BodyStyled>
-            <div>
+            <DivHeader>
+                <p><FaSlackHash size="40px"/></p>
                 <h1>Jogo da velha</h1>
 
-            </div>
+            </DivHeader>
 
             <DivBase {...winner? "game-over" : ""}>
                 {base.map((item, index)=>(

@@ -4,16 +4,29 @@ export const BodyStyled = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;
-
     font-family: sans-serif;
     height: 100vh;
-    background-color: #eee;
+    background-color: #a0c7d1;
+
+    `
+export const DivHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    p{
+        color: #ffb703;
+        margin-right: 20px
+    }
 
     h1{
+        font-family: 'Rampart One', cursive;
+        font-size: 55px;
         text-align: center;
-        color: #7BB0E6;
-   }
-`
+        color: #023047;
+    }
+
+    `
 export const DivBase = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 240px);
@@ -39,9 +52,16 @@ export const DivBase = styled.div`
         cursor: not-allowed;
     }
     .cell.O{
+        font-family: 'Tilt Prism', cursive;
+        color: white;
+        font-size: 40px;
         background-color: var(--0-color);
+
     }
     .cell.X{
+        font-family: 'Tilt Prism', cursive;
+        color: white;
+        font-size: 40px;
         background-color: var(--X-color);
     }
 `
