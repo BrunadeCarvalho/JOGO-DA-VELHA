@@ -8,6 +8,7 @@ export const GlobalStyled = createGlobalStyle`
     }
 
     :root{
-        
+        --0-color: #023047;
+        --X-color: #ffb703;
     }
 `
